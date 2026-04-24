@@ -21,7 +21,7 @@ public class Main extends Game {
     public BitmapFont font;
     public FitViewport viewport;
     public TextButton.TextButtonStyle style;
-
+    public Texture texture;
 
     public void create() {
         batch = new SpriteBatch();
@@ -37,13 +37,13 @@ public class Main extends Game {
         Pixmap pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
         pixmap.setColor(Color.DARK_GRAY);
         pixmap.fill();
-        Texture texture = new Texture(pixmap);
+        texture = new Texture(pixmap);
         pixmap.dispose();
         Drawable background = new TextureRegionDrawable(new TextureRegion(texture));
         style = new TextButton.TextButtonStyle();
         style.up = background;
         style.down = background;
-        style.font = new BitmapFont();
+        style.font = font;
         style.fontColor = Color.WHITE;
         style.downFontColor = Color.YELLOW;
 
@@ -57,5 +57,6 @@ public class Main extends Game {
     public void dispose() {
         batch.dispose();
         font.dispose();
+        texture.dispose();
     }
 }

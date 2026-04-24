@@ -55,8 +55,10 @@ public class Menu implements Screen {
     public void resize(int width, int height) {
         if(width <= 0 || height <= 0) return;
         main.viewport.update(width, height, true);
+        stage.getViewport().update(width, height, true);
         this.width = width;
         this.height = height;
+        d2s3b.setPosition((width - d2s3b.getWidth()) / 2, (height - d2s3b.getHeight()) / 2);
     }
 
     @Override
@@ -76,6 +78,6 @@ public class Menu implements Screen {
 
     @Override
     public void dispose() {
-        // Destroy screen's assets here.
+        stage.dispose();
     }
 }
